@@ -88,3 +88,19 @@ int main(){
     return 0;
 }
 ```
+# Given an array and a varibale that holds a element that exists in the array, return the index of the varibale containing that element
+
+```C++
+int introTutorial(int V, vector<int> arr) {
+    auto final = std::find(arr.begin(),arr.end(),V);
+    int distance = std::distance(arr.begin(), final);
+    return distance;
+}
+
+int main(){
+    std::vector<int> arr = {1,2,3};
+    int V = 3;
+    std::cout<<introTutorial(V,arr)<<std::endl;
+    return 0;
+}
+```
