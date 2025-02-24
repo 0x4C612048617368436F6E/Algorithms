@@ -18,6 +18,7 @@ int main(){
         {9, 8, 9}
     }
     std::cout << compute(Mat) << stdd::endl;
+    return 0;
 }
 ```
 
@@ -54,5 +55,36 @@ void miniMaxSum(vector<int> arr) {
 
 int main(){
     std::vector<int> values = {1,2,3,4,5}
+    miniMaxSum(values);
+    return 0;
+}
+```
+
+# Given a string loop over the string, and compare each character with the ASCII table to see what is uppercase and what is lowercase
+
+```C++
+int camelcase(string s) {
+    /*
+    Algorithm
+    1.) Have a for loop that goes through the input
+    2.) For each char (note a string is made up of char)
+    3.) Compare the char using ASCII table
+    4.) See if its greater than or equal to 65 and less than or equal to 90 as 65 is capital A and 90 is capital Z
+    5.) Note the first word are lowercase, so we can put that as an exception
+    */
+    //for first word
+    int numOfWords = 1;
+    for(size_t i=1; i<s.size();i++){
+        if(s.at(i) >= 65 && s.at(i) <= 90){
+            numOfWords++;
+        }
+    }
+    return numOfWords;
+}
+
+int main(){
+    std::string s = "oneTwoThree"
+    camelCase(s);
+    return 0;
 }
 ```
