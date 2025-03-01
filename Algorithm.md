@@ -111,3 +111,40 @@ int main(){
 <img src="./assets/GridLandMetro/3.png">
 <img src="./assets/GridLandMetro/4.png">
 <img src="./assets/GridLandMetro/5.png">
+
+# Given a 12 hour clock format, convert to 24 hour format
+
+```C++
+string timeConversion(string s) {
+    /*
+    Algorithm
+    1.) Check of we have AM or PM
+    2.) If AM, check if hour is 12, and if it is, convert to Integer,compute, convert back to string and return
+    3.) If PM, compute the value
+    */
+    std::string AMorPM = s.substr((s.size()-2),2);
+    if(AMorPM == "AM"){
+        if(s.substr(0,2) == "12"){
+            int val = std::stoi(s.substr(0,2))-12;
+            return "00"+s.substr(2,6);
+        }
+        return s.substr(0,8);
+        //is PM
+    }
+    int sub = std::stoi(s.substr(0,2));
+    if((sub-12) == 0){
+        return std::to_string(sub)+s.substr(2,6);
+    }
+    sub+=12;
+    if(std::to_string(sub).length() == 1){
+        return "0"+std::to_string(sub)+s.substr(2,6);
+     }
+    return std::to_string(sub)+s.substr(2,6);
+}
+
+int main(){
+    std:: string s = "12:01:00PM"
+    std::cout <<timeConversion(s) <<std::endl;
+    return 0
+}
+```
